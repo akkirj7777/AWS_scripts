@@ -32,6 +32,5 @@ aws lambda list-functions
 # list IAM users
 echo "print list of aws IAM users"
 
-AWS_scripts# aws iam list-users | jq '.Users [] | {Username: .Username, UserId: .UserId} '
-
+aws iam list-users | jq '.Users [] | {UserName: .UserName, UserId: .UserId} '
 
