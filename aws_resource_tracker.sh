@@ -22,7 +22,7 @@ aws s3 ls
 
 # list EC2 instances
 echo "print list of aws ec2 instances"
-aws ec2 describe-instances
+aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId'
 
 # list Lambda
 echo "print list of aws lambda functions"
@@ -32,5 +32,5 @@ aws lambda list-functions
 # list IAM users
 echo "print list of aws IAM users"
 
-aws iam list-users
+aws iam list-users | jq '.Users[] | {UserName: .UserName, UserId: .UserId}
 
